@@ -11,24 +11,57 @@
     <title>Pagina 1</title>
 </head>
 <body>
-    <div·style="margin: 24px;">
-<nav·class="navbar navbar-inverse navbar-stick-static-top">
-    <div class="container">
-        <a class="navbar-navbrand" href="index.html">Inicio</a>
-        <ul class="nav navbar-nav">
-        <li>
-            <a href="menu.html">Menu</a>
-        </li>
-        <li>
-            <a href="pedido.html">Pedido</a>
-        </li>
-        <li>
-            <a href="contacto.html">Contacto</a>
-        </li>
-        </ul>
-    </div>
-    </nav>
-    </div>
+    <div style="margin: 24px;">
+        <nav class="navbar navbar-inverse navbar-stick-static-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Inicio</a>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="menu.html">Menu</a>
+                    </li>
+                    <li>
+                        <a href="pedido.html">Pedido</a>
+                    </li>
+                    <li>
+                        <a href="contacto.html">Contacto</a>
+                    </li>
 
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <h1 style="text-align: left;">PEDIDO</h1>
+    <titulo1>Pedido</titulo1><br>
+
+    <form·id="pedido">
+        <p>Nombre: <input type="text" id="nombre" name="nombre" size="30"></p>
+        <p>Apellido: <input type="text" id="apellido" name="apellido" size="38"></p>
+        <p>Telefono: <input type="text" id="telefono" name="telefono" size="20"></p>
+        <p>Direccion: <input type="text" id="direccion" name="direccion" size="40"></p>
+        <p>Colonia: <input type="text" id="Colonia" name="telefono" size="30"></p>
+        
+        
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Borrar">
+
+    </form>
+    <script>
+
+        const form=document.getElementById("pedido");
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+            const formData=new FormData(form);
+            const order={
+                 nombre:formData.get("nombre"),
+                 apellido:formData.get("apellido"),
+                 telefono:formData.get("telefono"),
+                 direccion:formData.get("direccion"),
+                 colonia:formData.get("colonia")
+        };
+        localStorage.setItem("orden",JSON.stringify(orden));
+        window.location.href="pedidorealizado.html";
+        });
+             
+    </script>
 </body>
 </html>
